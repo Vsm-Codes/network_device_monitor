@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Network Device Monitor</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header>
+    <h1>Network Device Monitor</h1>
+    <p class="sub">TCP reachability checks with latency and uptime history. Refreshes every 10 seconds.</p>
+  </header>
+
+  <main>
+    <section class="cards">
+      <div class="card"><span id="c-total">0</span><label>Devices</label></div>
+      <div class="card up"><span id="c-up">0</span><label>Up</label></div>
+      <div class="card down"><span id="c-down">0</span><label>Down</label></div>
+    </section>
+
+    <section id="add-section" hidden>
+      <form id="add-form" autocomplete="off">
+        <input id="f-name" placeholder="Name (e.g. Office router)" maxlength="50" required>
+        <input id="f-host" placeholder="Host (e.g. example.com)" maxlength="253" required>
+        <input id="f-port" type="number" placeholder="Port" min="1" max="65535" required>
+        <button type="submit">Add device</button>
+      </form>
+      <p id="form-error" class="error" role="alert"></p>
+    </section>
+
+    <section>
+      <div class="toolbar">
+        <button id="check-now" type="button">Check now</button>
+        <span id="updated" class="muted"></span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Status</th><th>Name</th><th>Target</th><th>Latency</th><th>Uptime</th><th>Last check</th><th></th></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="muted" hidden>No devices yet.</p>
+    </section>
+  </main>
+
+  <footer class="muted">REST API: <code>/api/devices</code> &middot; <code>/api/summary</code> &middot; <code>/health</code></footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>

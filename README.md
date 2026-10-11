@@ -4,7 +4,7 @@ A small full-stack monitoring app. A Flask REST API checks whether network devic
 
 I built it to practise what a NOC does every day (watching reachability, spotting failures and their cause) as a backend, API and deployment project.
 
-**Live demo: https://network-device-monitor.onrender.com/
+**Live demo: https://networkdevicemonitor-cx8hhpjy.b4a.run
 
 ## Features
 
